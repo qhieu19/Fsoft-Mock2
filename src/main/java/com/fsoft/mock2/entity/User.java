@@ -3,7 +3,6 @@ package com.fsoft.mock2.entity;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
-import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -12,7 +11,6 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,4 +31,16 @@ public class User {
 
     @Column(name = "otp")
     private String otp;
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
+                ", enable=" + enable +
+                ", otp='" + otp + '\'' +
+                '}';
+    }
 }

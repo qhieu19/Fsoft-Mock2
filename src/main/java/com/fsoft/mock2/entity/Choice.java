@@ -3,7 +3,6 @@ package com.fsoft.mock2.entity;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
-import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -12,7 +11,6 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 
 public class Choice {
     @Id
@@ -30,4 +28,12 @@ public class Choice {
     @Column(name = "is_correct")
     private boolean isCorrect;
 
+    @Override
+    public String toString() {
+        return "Choice{" +
+                "choiceId=" + choiceId + '\'' +
+                ", choice='" + choice + '\'' +
+                ", isCorrect=" + isCorrect +
+                '}';
+    }
 }
