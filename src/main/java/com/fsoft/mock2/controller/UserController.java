@@ -2,7 +2,7 @@ package com.fsoft.mock2.controller;
 
 import com.fsoft.mock2.DTO.Request.UserRequestDTO;
 import com.fsoft.mock2.DTO.Response.API;
-import com.fsoft.mock2.service.service_impl.UserService;
+import com.fsoft.mock2.service.service_interface.UserService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

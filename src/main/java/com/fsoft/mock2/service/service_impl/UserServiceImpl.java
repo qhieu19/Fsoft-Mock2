@@ -4,6 +4,7 @@ import com.fsoft.mock2.DTO.Request.UserRequestDTO;
 import com.fsoft.mock2.DTO.Response.API;
 import com.fsoft.mock2.entity.User;
 import com.fsoft.mock2.repository.UserRepository;
+import com.fsoft.mock2.service.service_interface.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -14,14 +15,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class UserService {
+public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final ModelMapper mapper;
     private final JavaMailSender javaMailSender;
     private final PasswordEncoder bcryptEncoder;
     private final Helper helper;
 
-    public UserService(UserRepository userRepository, ModelMapper mapper, JavaMailSender javaMailSender, PasswordEncoder bcryptEncoder, Helper helper) {
+    public UserServiceImpl(UserRepository userRepository, ModelMapper mapper, JavaMailSender javaMailSender, PasswordEncoder bcryptEncoder, Helper helper) {
         this.userRepository = userRepository;
         this.mapper = mapper;
         this.javaMailSender = javaMailSender;
