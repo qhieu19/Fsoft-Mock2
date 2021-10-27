@@ -3,10 +3,9 @@ package com.fsoft.mock2.entity;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
-@Table(name = "history_scores")
+@Table (name = "history_scores")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -24,9 +23,9 @@ public class HistoryScore {
     private float totalScore;
 
     @Column(name = "created_at")
-    private Date createdAt;
+    private boolean createdAt;
 
-    public HistoryScore(User user, float totalScore, Date createdAt) {
+    public HistoryScore(User user, float totalScore, boolean createdAt) {
         this.user = user;
         this.totalScore = totalScore;
         this.createdAt = createdAt;
