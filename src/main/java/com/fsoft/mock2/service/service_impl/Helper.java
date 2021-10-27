@@ -1,6 +1,5 @@
 package com.fsoft.mock2.service.service_impl;
 
-import com.fsoft.mock2.DTO.Request.UserRequestDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -8,7 +7,7 @@ import java.util.Random;
 
 @Service
 public class Helper {
-    public UserRequestDTO getUser(String email, List<UserRequestDTO> list){
+    public com.fsoft.mock2.DTO.Request.UserRequestDto getUser(String email, List<com.fsoft.mock2.DTO.Request.UserRequestDto> list){
         return list.stream().filter(user -> user.getEmail().equals(email)).findAny().orElse(null);
     }
 
