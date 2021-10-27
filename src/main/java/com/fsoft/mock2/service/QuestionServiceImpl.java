@@ -12,12 +12,17 @@ import java.util.List;
 @Service
 public class QuestionServiceImpl implements IQuestionService{
 
-    @Autowired
-    private QuestionRepository questionRepository;
+    private final QuestionRepository questionRepository;
+    private final QuestionMapper questionMapper;
+
+    public QuestionServiceImpl(QuestionMapper questionMapper, QuestionRepository questionRepository) {
+        this.questionMapper = questionMapper;
+        this.questionRepository = questionRepository;
+    }
 
     @Override
     public List<QuestionResponse> loadQuestion(Integer quantity) {
         List<Question> questions = questionRepository.getQuestions(quantity);
-        return QuestionMapper.getQuestionResponse(questions);
+        return questionMapper.getQuestionResponse(questions);
     }
 }
