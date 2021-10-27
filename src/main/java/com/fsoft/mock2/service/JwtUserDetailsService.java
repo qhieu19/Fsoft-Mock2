@@ -24,7 +24,8 @@ public class JwtUserDetailsService implements UserDetailsService {
        com.fsoft.mock2.entity.User user = userDao.findByEmail(username);
         if (user == null) {
             throw new UsernameNotFoundException("User not found with username: " + username);
-        }if(!user.isEnable()){
+        }
+        if(!user.isEnable()){
             throw new UsernameNotFoundException("User is not activated: " + username);
         }
         return new User(user.getEmail(), user.getPassword(), new ArrayList<>());
