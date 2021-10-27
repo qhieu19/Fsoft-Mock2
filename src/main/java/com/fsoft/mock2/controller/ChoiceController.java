@@ -13,7 +13,7 @@ public class ChoiceController {
     @Autowired
     private IChoiceService iChoiceService;
 
-    @RequestMapping("{questionId}")
+    @GetMapping("{questionId}")
     public List<ChoiceResponse> getChoice(@PathVariable Integer questionId) {
         return iChoiceService.loadChoice(questionId);
     }
