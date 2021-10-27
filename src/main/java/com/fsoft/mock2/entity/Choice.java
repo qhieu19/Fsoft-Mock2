@@ -1,22 +1,19 @@
 package com.fsoft.mock2.entity;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Table (name = "choices")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
-@AllArgsConstructor
-
 public class Choice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "choice_id")
-    private int choiceId;
+    private Integer choiceId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "question_id")
@@ -27,6 +24,12 @@ public class Choice {
 
     @Column(name = "is_correct")
     private boolean isCorrect;
+
+    public Choice(Question question, String choice, boolean isCorrect) {
+        this.question = question;
+        this.choice = choice;
+        this.isCorrect = isCorrect;
+    }
 
     @Override
     public String toString() {

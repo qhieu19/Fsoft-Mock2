@@ -1,21 +1,19 @@
 package com.fsoft.mock2.entity;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Table (name = "questions")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
-@AllArgsConstructor
 public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "question_id")
-    private int questionId;
+    private Integer questionId;
 
     @Column(name = "question")
     private String question;
