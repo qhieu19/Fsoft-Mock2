@@ -1,4 +1,4 @@
-package com.fsoft.mock2.DTO.Response;
+package com.fsoft.mock2.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

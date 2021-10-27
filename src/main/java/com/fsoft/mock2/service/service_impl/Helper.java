@@ -7,7 +7,7 @@ import java.util.Random;
 
 @Service
 public class Helper {
-    public com.fsoft.mock2.DTO.Request.UserRequestDto getUser(String email, List<com.fsoft.mock2.DTO.Request.UserRequestDto> list){
+    public com.fsoft.mock2.dto.request.UserRequestDto getUser(String email, List<com.fsoft.mock2.dto.request.UserRequestDto> list){
         return list.stream().filter(user -> user.getEmail().equals(email)).findAny().orElse(null);
     }
 

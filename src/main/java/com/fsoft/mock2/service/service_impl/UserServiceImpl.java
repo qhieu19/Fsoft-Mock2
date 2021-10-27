@@ -1,6 +1,6 @@
 package com.fsoft.mock2.service.service_impl;
 
-import com.fsoft.mock2.DTO.Response.API;
+import com.fsoft.mock2.dto.response.API;
 import com.fsoft.mock2.entity.User;
 import com.fsoft.mock2.repository.UserRepository;
 import com.fsoft.mock2.service.service_interface.UserService;
@@ -30,11 +30,11 @@ public class UserServiceImpl implements UserService {
     }
 
     //cau hoi ngu: getUser bang cach @Query hay get trong class Helper?
-    public List<com.fsoft.mock2.DTO.Request.UserRequestDto> getRequestList(){
+    public List<com.fsoft.mock2.dto.request.UserRequestDto> getRequestList(){
         List<User> list = this.userRepository.findAll();
-        List<com.fsoft.mock2.DTO.Request.UserRequestDto> list2 = new ArrayList<>();
+        List<com.fsoft.mock2.dto.request.UserRequestDto> list2 = new ArrayList<>();
         for (User u : list){
-            list2.add(mapper.map(u, com.fsoft.mock2.DTO.Request.UserRequestDto.class));
+            list2.add(mapper.map(u, com.fsoft.mock2.dto.request.UserRequestDto.class));
         }
         return list2;
     }
@@ -48,7 +48,7 @@ public class UserServiceImpl implements UserService {
     }
 
     public API reSendOTP(String email){
-        com.fsoft.mock2.DTO.Request.UserRequestDto userRequestDTO = helper.getUser(email, getRequestList());
+        com.fsoft.mock2.dto.request.UserRequestDto userRequestDTO = helper.getUser(email, getRequestList());
         if(userRequestDTO == null){
             return new API(false, "this email not exists");
         }else{
@@ -61,8 +61,8 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-    public API register(com.fsoft.mock2.DTO.Request.UserRequestDto user){
-        com.fsoft.mock2.DTO.Request.UserRequestDto userRequestDTO = helper.getUser(user.getEmail(), getRequestList());
+    public API register(com.fsoft.mock2.dto.request.UserRequestDto user){
+        com.fsoft.mock2.dto.request.UserRequestDto userRequestDTO = helper.getUser(user.getEmail(), getRequestList());
         if(userRequestDTO != null){
             return new API(false, "this email exists");
         }else{
@@ -80,7 +80,7 @@ public class UserServiceImpl implements UserService {
     public API active(String email, String otp){
         try {
             User user = this.userRepository.findByEmail(email);
-            com.fsoft.mock2.DTO.Request.UserRequestDto userRequestDTO = mapper.map(user, com.fsoft.mock2.DTO.Request.UserRequestDto.class);
+            com.fsoft.mock2.dto.request.UserRequestDto userRequestDTO = mapper.map(user, com.fsoft.mock2.dto.request.UserRequestDto.class);
                 if(otp.equals(userRequestDTO.getOtp())){
                     userRequestDTO.setEnable(true);
                     User user1 = mapper.map(userRequestDTO, User.class);

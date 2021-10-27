@@ -1,4 +1,4 @@
-package com.fsoft.mock2.DTO.Request;
+package com.fsoft.mock2.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserRequestDto {
+public class UserResponseDTO {
     private int id;
     private String full_name;
     private String email;
