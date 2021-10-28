@@ -1,5 +1,6 @@
 package com.fsoft.mock2.controller;
 
+import com.fsoft.mock2.dto.request.UserRequestDto;
 import com.fsoft.mock2.dto.response.API;
 import com.fsoft.mock2.service.service_interface.UserService;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +16,7 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public API register(@RequestBody com.fsoft.mock2.dto.request.UserRequestDto user){
+    public API register(@RequestBody UserRequestDto user){
         return userService.register(user);
     }
 
